@@ -1,11 +1,19 @@
-import logo from './logo.svg';
-import './App.css';
+import { Provider } from "react-redux";
+import BlogList from "./components/BlogList";
+import Footer from "./components/Footer";
+import Navbar from "./components/Navbar";
+import Search from "./components/Search";
+import store from "./Redux/store";
+
 
 function App() {
   return (
-    <div className="App">
-      <h1>This is our app</h1>
-    </div>
+    <Provider store={store}>
+      <Navbar />
+      <Search />
+      <BlogList />
+      <Footer />
+    </Provider>
   );
 }
 
