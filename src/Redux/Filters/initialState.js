@@ -104,7 +104,8 @@ const initialState = {
     },
   ],
   author:"",
-  category:""
+  category:"",
+  searchKey:""
 }
 
 export default initialState;

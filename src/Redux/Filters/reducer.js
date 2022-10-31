@@ -1,4 +1,4 @@
-import { AUTHERSELECTED, CATEGORYSELECTED } from "./actionTypes";
+import { AUTHERSELECTED, CATEGORYSELECTED, SEARCHTITLE } from "./actionTypes";
 import initialState from "./initialState";
 
 const reducer = (state = initialState, action) => {
@@ -24,6 +24,17 @@ const reducer = (state = initialState, action) => {
             return {
                 ...state,
                 author:action.payload
+            }
+        case SEARCHTITLE:
+            // if (state.searchKey === action.payload) {
+            //     return {
+            //         ...state,
+            //         author:""
+            //     }
+            // }
+            return {
+                ...state,
+                searchKey:action.payload
             }
 
 

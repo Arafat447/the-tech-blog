@@ -6,6 +6,8 @@ const BlogList = () => {
     const blogList = useSelector(state => state.posts);
     const category = useSelector(state => state.category);
     const author = useSelector(state => state.author);
+    const searchKey = useSelector(state => state.searchKey);
+    console.log(searchKey,"d")
     const filterByCategory = (blog)=> {
         if(category){
             return blog.category===category
@@ -15,6 +17,13 @@ const BlogList = () => {
     const filterByAuthor = (blog) => {
         if(author){
             return blog.author === author
+        }
+        return true
+    }
+    
+    const filterBySearchKey = (blog)=>{
+        if(searchKey){
+            return blog.title.toLowerCase().includes(searchKey.toLowerCase())
         }
         return true
     }
@@ -46,6 +55,7 @@ const BlogList = () => {
                         blogList
                         .filter(filterByCategory )
                         .filter(filterByAuthor)
+                        .filter(filterBySearchKey)
                         .map(blog => <Blog key={blog.id} blog={blog} />)
                     }
                 </div>
